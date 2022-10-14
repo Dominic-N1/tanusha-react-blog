@@ -1,7 +1,8 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  --font-body: Inter, Avenir, Helvetica, Arial, sans-serif;
+  --user-font-scale: 1rem - 16px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.6;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -12,7 +13,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -25,16 +35,60 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-size: clamp(
+    1rem,
+    0.4626rem + 1.0309vw + var(--user-font-scale),
+    1.125rem
+  );
+  max-width: 99%;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80ch;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+/* Typography */
+:is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 1.38rem;
+  margin-bottom: 1.38rem;
+  font-weight: 400;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+
+:is(h1, h2) {
+  max-width: 40ch;
+}
+
+:is(h2, h3):not(:first-child) {
+  margin-top: 3rem;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: clamp(2.488rem, 1.924rem + 1.41vw, 3.052rem);
+}
+
+h2 {
+  font-size: clamp(2.074rem, 1.707rem + 0.9175vw, 2.441rem);
+}
+
+h3 {
+  font-size: clamp(1.728rem, 1.503rem + 0.5625vw, 1.953rem);
+}
+
+h4 {
+  font-size: clamp(1.44rem, 1.317rem + 0.3075vw, 1.563rem);
+}
+
+h5 {
+  font-size: clamp(1.2rem, 1.15rem + 0.125vw, 1.25rem);
 }
 
 button {
@@ -66,5 +120,64 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 50em) {
+  .preview-title {
+    font-size: 1.75rem;
+    overflow-wrap: break-word;
+  }
+
+  .blog-post-list {
+    margin-top: 4rem;
+  }
+
+  .blog-preview-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-size: 2.074rem;
+  }
+
+  h2 {
+    font-size: 1.728rem;
+  }
+
+  h3 {
+    font-size: 1.44rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 25em) {
+  .preview-title {
+    font-size: 1.5rem;
+  }
+
+  .blog-post-list {
+    margin-top: 3rem;
+  }
+
+  .blog-preview-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .wrapper {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }

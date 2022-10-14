@@ -1,0 +1,16 @@
+.main {
+  grid-area: mn;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.main p {
+  text-align: justify;
+  text-indent: 1.5em;
+}
+
+.main img {
+  max-width: 95%;
+}

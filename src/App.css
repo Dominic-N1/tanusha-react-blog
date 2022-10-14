@@ -1,8 +1,16 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: auto 2rem;
   text-align: center;
+}
+
+.App {
+  min-width: 320px;
+  min-height: 100vh;
+  display: grid;
+  grid-auto-rows: auto 1fr auto;
+  grid-template-areas: "hd" "mn" "ft";
 }
 
 .logo {
@@ -34,8 +42,4 @@
 
 .card {
   padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
